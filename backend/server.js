@@ -8,7 +8,7 @@ app.use(cors({
   origin: "https://jobform-henna.vercel.app"
 }));
 
-mongoose.connect("mongodb://127.0.0.1:27017/jobDB")
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("DB Connected"));
 
 const storage = multer.diskStorage({
