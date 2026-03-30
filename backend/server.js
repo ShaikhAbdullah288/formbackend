@@ -11,12 +11,14 @@ app.use(cors({
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("DB Connected"));
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, "uploads"),
-  filename: (req, file, cb) => cb(null, Date.now() + "-" + file.originalname)
-});
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => cb(null, "uploads"),
+//   filename: (req, file, cb) => cb(null, Date.now() + "-" + file.originalname)
+// });
 
-const upload = multer({ storage });
+const upload = multer({ storage: multer.memoryStorage() });
+
+// const upload = multer({ storage });
 
 const Job = mongoose.model("Job", {
   name: String,
