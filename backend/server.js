@@ -4,7 +4,9 @@ const cors = require("cors");
 const multer = require("multer");
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: "*"
+}));
 
 mongoose.connect("mongodb://127.0.0.1:27017/jobDB")
   .then(() => console.log("DB Connected"));
