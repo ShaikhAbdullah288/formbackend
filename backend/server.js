@@ -6,6 +6,9 @@ const multer = require("multer");
 const app = express();
 app.use(cors({
   origin: "https://jobform-henna.vercel.app"
+  methods: ["GET", "POST"],
+  credentials: true
+
 }));
 
 mongoose.connect(process.env.MONGO_URI)
