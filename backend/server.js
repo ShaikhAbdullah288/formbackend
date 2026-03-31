@@ -3,12 +3,6 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const multer = require("multer");
 
-
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
-const multer = require("multer");
-
 const app = express();
 
 app.use(cors({
