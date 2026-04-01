@@ -29,7 +29,7 @@ const Job = mongoose.model("Job", {
   phone: String,
   role: String,
   coverLetter: String,
-  resume: String
+  resume: buffer
 });
 
 app.post("/api/jobs", upload.single("resume"), async (req, res) => {
@@ -37,8 +37,6 @@ app.post("/api/jobs", upload.single("resume"), async (req, res) => {
     const job = new Job({
       ...req.body,
       resume: req.file ? req.file.buffer.toString("base64") : null;
-      console.log("FILE:", req.file);
-       console.log("BODY:", req.body);
       
     });
 
