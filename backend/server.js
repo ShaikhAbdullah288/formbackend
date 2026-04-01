@@ -36,7 +36,9 @@ app.post("/api/jobs", upload.single("resume"), async (req, res) => {
   try {
     const job = new Job({
       ...req.body,
-      resume: req.file ? req.file.buffer.toString("base64") : null
+      resume: req.file ? req.file.buffer.toString("base64") : null;
+      console.log("FILE:", req.file);
+       console.log("BODY:", req.body);
       
     });
 
